@@ -1,0 +1,33 @@
+<div>
+  <form [formGroup]="morse" (ngSubmit)="addMsg()">
+  <input type="text" formControlName="msg">
+  <button type="submit">Add message</button>
+  </form>
+</div>
+
+<div *ngFor="let message of messages">
+  <li>{{message.message}}</li>
+</div>
+
+<div>
+<form [formGroup]="userForm" (ngSubmit)="addUser()">
+
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+<button type="submit">Add user</button>
+</form>
+</div>
+<div>
+  <ul *ngFor="let user of userList">
+    <a>{{user.data.firstname}} </a>
+    <a>{{user.data.lastname}}</a>
+    <button type="submit" (click)="deleteUser(user.id)"></button>
+  </ul>
+</div>
